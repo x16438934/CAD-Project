@@ -10,8 +10,8 @@ end
 test "create a description"do
   @article = Article.new(description: "This is an example")
 end
-# test to see if the article is valid
-test "article should be valid" do
+# test to see if the query is valid
+test "query should be valid" do
   assert @article.valid?
 end
 
