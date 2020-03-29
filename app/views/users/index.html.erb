@@ -1,0 +1,28 @@
+<h1 align="center">All Users</h1>
+<!-- shows all users -->
+
+  <div align="center">
+    <% @users.each do |user| %>
+
+      <ul class="listing">
+
+        <div class="row">
+
+          <div class="cardz col-4 offset-4">
+
+            <li><%= link_to gravatar_for(user), user_path(user) %></li>
+
+            <li class="article-title">
+  <!-- goes to users page -->
+              <%= link_to user.username, user_path(user) %>
+
+
+            </li>
+<!-- shows if the user has any records  -->
+            <li><small><%= pluralize(user.articles.count, "article") if user.articles %></small></li>
+          </div>
+
+        </div>
+      </ul>
+      <% end %>
+    </div>

@@ -1,0 +1,37 @@
+
+
+<h2 align = "center"> Title:  <%= @article.title %> </h2>
+
+<div class="col-8 offset-2">
+<div class="cardss card-body" >
+  <ul class="listing">
+
+    <div class="row">
+
+      <div class="cardz col-4 offset-5">
+<li>Created by:</li>
+        <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+
+        <li class="article-title">
+<!-- goes to users page -->
+          <%= link_to @article.user.username, user_path(@article.user) %>
+
+
+        </li>
+<!-- shows if the user has any records  -->
+        <li><small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small></li>
+      </div>
+
+    </div>
+  </ul>
+  <h4 class ="center"><strong>Description:</strong></h4>
+  <hr>
+    <%= simple_format(@article.description) %>
+    <div class="articles-actions">
+
+<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-xs btn-primary" %>
+
+<%= link_to 'View all Queries', articles_path, class: "btn btn-xs btn-success" %>
+
+</div>
+</div>
